@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
+
+    <title>GUEST</title><div id="nav-header">
+        <ul>
+            <li>
+                <a href="/home.html">HOME</a>
+            </li>
+
+            <li>
+                <a href="/project.html">PROJECTS</a>
+
+            </li>
+            <li>
+                <a href="/Copy.html">COPY</a>
+
+            </li>
+            <li>
+                <a href="/guest.html">GUEST</a>
+
+            </li>
+
+        </ul>
+    </div>
+</head>
+
+<body id="guest-body">
+
+    <label class="texto-funcao"><b>Guest Game</b></label>
+
+    <p class="texto-funcao">
+        <input id="input-numero-chute" class="input-guest" placeholder="Digite o numero secreto">
+        <button type="submit" onclick="numeroSecreto()">Clique aqui</button>
+    </p>
+
+    <p class="texto-funcao" id="estadoNumero">
+        Você ainda não digitou nenhum numero
+    </p>
+    <div>
+    <p class="texto-funcao" id="maiorNumero">
+        
+    </p>
+    <b class="texto-funcao">
+        Numeros Maiores Tentados
+    </b>
+
+    <p class="texto-funcao" id="menorNumero">
+        
+    </p>
+    <b class="texto-funcao">
+        Numeros Menores Tentados
+    </b>
+
+    <p class="texto-funcao">
+        <button type="submit" class="input-guest" onclick="gerarNovoNumero()">Resetar e Gera Novo numero</button>
+    </p>
+    
+</div>
+ 
+
+    </div>
+
+    <script src="script.js"></script>
+ 
+</body>
+
+</html>

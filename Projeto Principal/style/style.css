@@ -1,0 +1,112 @@
+*{
+    font-family: 'Montserrat', sans-serif;
+    padding: 0;
+}
+
+
+/*  HEADER */
+#nav-header{
+    padding: 0;
+    background-color: rgba(5, 5, 5, 0.8);
+    padding: 1%;
+    color: #fff;
+}
+#nav-header ul li {
+    display: inline-block;
+    padding-right: 4px;
+    margin: 0 20px;
+}
+#nav-header ul li a {
+    color: #fff;
+    text-decoration:none;
+    
+}
+#nav-header ul li a:hover{
+    font-weight: bold;
+    
+}
+/* FIM HEADER */ 
+
+
+/* ALIGN BODY */
+body{
+    margin: 0; 
+}
+
+.content-page{
+    padding: 0 100px;
+}
+
+/* FIM ALIGN BODY */
+
+
+/* TABLES */
+.section-ul-table{
+   list-style: none;
+}
+
+.img_project {
+    width: 300px;
+    margin-right: 5px;
+
+}
+
+.img_project:hover {
+    transform: scale(1.1);
+}
+
+#projects-table{
+
+}
+
+/* Guest */
+
+#guest-body{
+    background-color: aquamarine;
+}
+
+#form{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0 200px ;
+    
+}
+.texto-funcao{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.input-guest{
+    height: 50px;
+    margin: auto 10px;
+}
+
+/*FIM GUEST*/
+
+/*FIM TABLES*/
+
+
+/* FOOTER */
+
+footer{
+    background-color: rgba(5, 5, 5, 0.8);
+    padding: 10px; 
+    margin:0;  
+}
+
+#footer-center{
+    color:#fff
+}
+#footer-center-logo{
+    width: 70px;
+}
+#footer-center-logo:hover{
+    width: 70px;
+    transform: scale(1.1);
+}
+
+ /*FIM FOOTER*/
+
+
+
