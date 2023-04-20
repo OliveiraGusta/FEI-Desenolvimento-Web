@@ -51,150 +51,85 @@ var canvas = document.getElementById('meuCanvas');
 var ctx = canvas.getContext("2d");
 
 
-//Texto Preto
-ctx.beginPath();
-ctx.fillStyle = "black";
-ctx.font = "20px Arial";
-ctx.fillText("Canvas", 120, 60);
-
-//Quadrado Amarelo
-ctx.beginPath();
-ctx.fillStyle = "yellow";
-ctx.fillRect(0, 270, 30, 30);
-
-//Quadrado Amarelo
-ctx.beginPath();
-ctx.fillStyle = "yellow";
-ctx.fillRect(30, 270, 30, 30);
-
-//Quadrado Amarelo
-ctx.beginPath();
-ctx.fillStyle = "yellow";
-ctx.fillRect(0, 240, 30, 30);
-
-//Quadrado preto
-ctx.beginPath();
-ctx.fillStyle = "black";
-ctx.fillRect(270, 270, 30, 30);
-
-//Quadrado preto
-ctx.beginPath();
-ctx.fillStyle = "black";
-ctx.fillRect(270, 240, 30, 30);
-
-//Quadrado preto
-ctx.beginPath();
-ctx.fillStyle = "black";
-ctx.fillRect(240, 270, 30, 30);
-
-//Linha Azul
-ctx.beginPath();
-ctx.moveTo(150, 150);
-ctx.lineTo(150, 350);
-ctx.strokeStyle = "black";
-ctx.stroke();
-
-//Linha Azul
-ctx.beginPath();
-ctx.moveTo(0, 0);
-ctx.lineTo(150, 150);
-ctx.strokeStyle = "blue";
-ctx.stroke();
-
-//Quadrado Ciano
-ctx.beginPath();
-ctx.fillStyle = "cyan";
-ctx.fillRect(270, 135, 30, 30);
-
-//Quadrado Ciano
-ctx.beginPath();
-ctx.fillStyle = "cyan";
-ctx.fillRect(0, 120, 30, 60);
-
-//Quadrado vermelho
-ctx.beginPath();
-ctx.fillStyle = "red";
-ctx.fillRect(110, 150, 40, 40);
-
-//Circulo Ciano
-ctx.beginPath();
-ctx.fillStyle = "cyan";
-ctx.arc(150, 120, 15, 0, 2 * Math.PI);
-ctx.fill(); 
-ctx.stroke()
-
-//Linha Vermelho
-ctx.beginPath();
-ctx.moveTo(300, 0);
-ctx.lineTo(150, 150);
-ctx.strokeStyle = "red";
-ctx.stroke();
-
-//Linha Verde
-ctx.beginPath();
-ctx.moveTo(0, 150);
-ctx.lineTo(300, 150);
-ctx.strokeStyle = "green";
-ctx.stroke();
-
-//Quadrado azul  
-ctx.beginPath();
-ctx.fillStyle = "blue";
-ctx.fillRect(0, 0, 60, 60);
-
-//Quadrado Maior vermelho
-ctx.beginPath();
-ctx.fillStyle = "red";
-ctx.fillRect(240, 0, 60, 60);
 
 
-//Meia-Lua verde
-ctx.beginPath();
-ctx.arc(150, 150, 60, Math.PI, 0);
-ctx.stroke();
+function desenhar_quadrado(x, y, cor){
+    ctx.beginPath();
+    ctx.fillStyle = cor;
+    ctx.fillRect(x, y, 30, 30);
+}
 
-//Meia-Lua verde
-ctx.beginPath();
-ctx.arc(150, 150, 80, Math.PI, Math.PI* 1.25);
-ctx.stroke();
+function desenhar_linha(x1, y1, x2, y2, cor){
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
+    ctx.strokeStyle = cor;
+    ctx.stroke();
+}
 
+function desenhar_arco(x, y ,r, ang1, ang2, cor, preencher){
+    ctx.beginPath();
+    ctx.fillStyle = cor;
+    
+    ctx.arc(x, y, r, ang1, ang2);
+   if(preencher == true){
+        ctx.fill(); 
+    }
+    ctx.stroke();
+}
 
-//Meia-Lua verde
-ctx.beginPath();
-ctx.arc(150, 150, 80, Math.PI * 1.75, 0);
-ctx.stroke();
+function escrever(x, y, texto, cor){
+    ctx.beginPath();
+    ctx.fillStyle = cor;
+    ctx.font = "20px Arial";
+    ctx.fillText(texto, x, y);
+}
 
+function desenharModeloCanvas(){
 
-//Meia-Lua verde
-ctx.beginPath();
-ctx.arc(150, 300, 70, Math.PI, Math.PI * 1.5);
-ctx.stroke();
+    escrever(120, 60, "Canvas" , "black");
 
+    desenhar_quadrado(0, 270, "yellow");
+    desenhar_quadrado(30, 270, "yellow");
+    desenhar_quadrado(0, 240, "yellow");
+    
+    desenhar_quadrado(270, 270, "black");
+    desenhar_quadrado(270, 240, "black");
+    desenhar_quadrado(240, 270, "black");
+    
+    desenhar_linha(150, 150, 150, 350, "black");
+    desenhar_linha(0, 0, 150, 150, "blue");
+    
+    desenhar_quadrado(270, 135, "cyan");
+    desenhar_quadrado(0, 120, "cyan");
+    desenhar_quadrado(0, 150, "cyan");
+    desenhar_quadrado(120, 150, "red");
+    
+    
+    desenhar_arco(150, 120 ,15, 0, 2 * Math.PI, "cyan", true);
+    
+    desenhar_linha(300, 0, 150, 150, "red");
+    desenhar_linha(0, 150, 300, 150, "green");
+    
+    desenhar_quadrado(0, 0, "blue");
+    desenhar_quadrado(30, 30, "blue");
+    desenhar_quadrado(0, 30, "blue");
+    desenhar_quadrado(30, 0, "blue");
+    
+    desenhar_quadrado(270, 0, "red");
+    desenhar_quadrado(240, 0, "red");
+    desenhar_quadrado(240, 30, "red");
+    desenhar_quadrado(270, 30, "red");
+    
+    desenhar_arco(150, 150 ,60, Math.PI, 0, "green", false);
+    desenhar_arco(150, 150 ,80, Math.PI, Math.PI* 1.25, "green", false);
+    desenhar_arco(150, 150 ,80,Math.PI* 1.75, 0 , "green", false);
+    desenhar_arco(150, 300 ,70,Math.PI, Math.PI* 1.5 , "green", false);
+    desenhar_arco(150, 300 ,50, 11, Math.PI* 2 , "green", false);
+    
+    desenhar_arco(80, 220 ,15, 0, 2 * Math.PI, "yellow", true);
+    desenhar_arco(220, 220 ,15, 0, 2 * Math.PI, "yellow", true);
+    desenhar_arco(150, 300 ,35, 0, 2 * Math.PI, "cyan", true);
+}
 
-//Meia-Lua verde
-ctx.beginPath();
-ctx.arc(150, 300, 50, 11, Math.PI * 2);
-ctx.stroke();
-
-
-//Circulo Amarelo
-ctx.beginPath();
-ctx.fillStyle = "yellow";
-ctx.arc(80, 220, 15, 0, 2 * Math.PI);
-ctx.fill(); // preenche o círculo com a cor amarela
-ctx.stroke()
-
-//Circulo Amarelo 
-ctx.beginPath();
-ctx.fillStyle = "yellow";
-ctx.arc(220, 220, 15, 0, 2 * Math.PI);
-ctx.fill();
-ctx.stroke();
-
-//Circulo Ciano
-ctx.beginPath();
-ctx.fillStyle = "cyan";
-ctx.arc(150, 300, 35, 0, 2 * Math.PI);
-ctx.fill(); // preenche o círculo com a cor amarela
-ctx.stroke()
-
+desenharModeloCanvas();
