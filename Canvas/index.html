@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Canvas</title>
+</head>
+<body>
+    <center>
+    <canvas id="meuCanvas" width="500" height="500" style="border:1px solid #c3c3c3;">
+
+    </canvas>
+    </center>
+    <script>
+        var canvas = document.getElementById('meuCanvas');
+        var ctx = canvas.getContext("2d");
+
+        //Quadrado Amarelo
+        ctx.beginPath(); 
+        ctx.fillStyle = "yellow";
+        ctx.fillRect(0,450,50,50);
+
+        //Quadrado Verde
+        ctx.beginPath(); 
+        ctx.fillStyle = "green";
+        ctx.fillRect(450,450,50,50);
+
+        //Texto Preto
+        ctx.beginPath(); 
+        ctx.fillStyle = "black";
+        ctx.font = "30px Arial";
+        ctx.fillText("Desenvolvimento Web", 100, 100);
+
+        //Linha vermelha
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.lineTo(500, 500);
+        ctx.strokeStyle = "red";
+        ctx.stroke();
+
+        //Linha Azul
+        ctx.beginPath(); 
+        ctx.moveTo(500, 0);
+        ctx.lineTo(0, 500);
+        ctx.strokeStyle = "blue";
+        ctx.stroke();
+
+        //Linha Verde
+        ctx.beginPath();
+        ctx.moveTo(0, 250); 
+        ctx.lineTo(500, 250);
+        ctx.strokeStyle = "green";
+        ctx.stroke();
+
+        //Quadrado vermelho  
+        ctx.beginPath(); 
+        ctx.fillStyle = "red";
+        ctx.fillRect(0,0,50,50);
+
+        //Quadrado Azul
+        ctx.beginPath(); 
+        ctx.fillStyle = "blue";
+        ctx.fillRect(450,0,50,50);
+
+        //Meia-Lua verde
+        ctx.beginPath(); 
+        ctx.arc(250,250,80,0,1*Math.PI);
+        ctx.stroke()
+
+        //Circulo Amarelo Borda Verde
+        ctx.beginPath(); 
+        ctx.fillStyle = "yellow";
+        ctx.arc(100,170,20,0,2*Math.PI);
+        ctx.arc(100,170,20,0,2*Math.PI);
+        ctx.fill(); // preenche o círculo com a cor amarela
+        ctx.stroke()
+        
+        //Circulo Amarelo Borda Verde
+        ctx.beginPath();
+        ctx.fillStyle = "yellow";
+        ctx.arc(400,170,20,0,2*Math.PI);
+        ctx.fill(); // preenche o círculo com a cor amarela
+        ctx.stroke();
+        
+        
+    </script>
+</body>
+</html>
+
