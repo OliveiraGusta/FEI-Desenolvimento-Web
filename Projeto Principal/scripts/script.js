@@ -1,7 +1,11 @@
 
-
 let numero_gerado = Math.floor(Math.random() * 51);
 console.log(numero_gerado);
+
+var canvas = document.getElementById('meuCanvas');
+var pintura = canvas.getContext("2d");
+
+
 
 function gerarNovoNumero() {
     numero_gerado = Math.floor(Math.random() * 51);
@@ -23,6 +27,7 @@ function numeroSecreto() {
             let numChuteAdd = "";
             numChuteAdd = numChuteAdd + numChute + ", ";
             document.getElementById("maiorNumero").innerHTML += numChuteAdd;
+
 
         } else {
             if (numero_gerado < numChute) {
@@ -47,42 +52,37 @@ function numeroSecreto() {
 
 }
 
-var canvas = document.getElementById('meuCanvas');
-var ctx = canvas.getContext("2d");
-
-
-
 
 function desenhar_quadrado(x, y, cor){
-    ctx.beginPath();
-    ctx.fillStyle = cor;
-    ctx.fillRect(x, y, 30, 30);
+    pintura.beginPath();
+    pintura.fillStyle = cor;
+    pintura.fillRect(x, y, 30, 30);
 }
 
 function desenhar_linha(x1, y1, x2, y2, cor){
-    ctx.beginPath();
-    ctx.moveTo(x1, y1);
-    ctx.lineTo(x2, y2);
-    ctx.strokeStyle = cor;
-    ctx.stroke();
+    pintura.beginPath();
+    pintura.moveTo(x1, y1);
+    pintura.lineTo(x2, y2);
+    pintura.strokeStyle = cor;
+    pintura.stroke();
 }
 
 function desenhar_arco(x, y ,r, ang1, ang2, cor, preencher){
-    ctx.beginPath();
-    ctx.fillStyle = cor;
+    pintura.beginPath();
+    pintura.fillStyle = cor;
     
-    ctx.arc(x, y, r, ang1, ang2);
+    pintura.arc(x, y, r, ang1, ang2);
    if(preencher == true){
-        ctx.fill(); 
+        pintura.fill(); 
     }
-    ctx.stroke();
+    pintura.stroke();
 }
 
 function escrever(x, y, texto, cor){
-    ctx.beginPath();
-    ctx.fillStyle = cor;
-    ctx.font = "20px Arial";
-    ctx.fillText(texto, x, y);
+    pintura.beginPath();
+    pintura.fillStyle = cor;
+    pintura.font = "20px Arial";
+    pintura.fillText(texto, x, y);
 }
 
 function desenharModeloCanvas(){
@@ -133,3 +133,35 @@ function desenharModeloCanvas(){
 }
 
 desenharModeloCanvas();
+
+function moverQuadradoComMouse(){
+  
+
+    function desenharQuadradoCanvas() {
+        animationMouse.beginPath()
+        animationMouse.clearRect(0, 0, animationCanvas.width, animationCanvas.height);
+        animationMouse.fillRect(quadrado.x, quadrado.y, quadrado.size, quadrado.size);
+        animationMouse.fillStyle= 'red';
+     }
+    
+    function moverQuadrado (event) {
+    
+    let rect = canvas.getBoundingClientRect();
+        let mouseX = event.clientX - rect.left;
+        let mouseY = event.clientY - rect.top;
+        quadrado.x = mouseX - quadrado.size / 2;
+        quadrado.y = mouseY - quadrado.size / 2;
+        if (quadrado.x < 0) quadrado.x = 0;
+        if (quadrado.x > animationCanvas.width - quadrado.size) quadrado.x = animationCanvas.width - quadrado.size;
+        if (quadrado.y < 0) quadrado.y = 0;
+        if (quadrado.y > animationCanvas.height - quadrado.size) quadrado.y = animationCanvas.height - quadrado.size;
+        desenharQuadradoCanvas();
+    }
+    
+    animationCanvas.addEventListener('mousemove', moverQuadrado);
+    
+    desenharQuadradoCanvas();
+
+}
+
+moverQuadradoComMouse();

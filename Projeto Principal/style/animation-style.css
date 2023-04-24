@@ -1,4 +1,4 @@
-*{
+*, body{
     font-family: 'Montserrat', sans-serif;
     padding: 0;
 }
@@ -10,11 +10,14 @@
     background-color: rgba(5, 5, 5, 0.8);
     padding: 1%;
     color: #fff;
+    
 }
 #nav-header ul li {
     display: inline-block;
     padding-right: 4px;
-    margin: 0 20px;
+    margin: 2px 20px;
+    
+    
 }
 #nav-header ul li a {
     color: #fff;
@@ -25,79 +28,46 @@
     font-weight: bold;
     
 }
-/* FIM HEADER */ 
 
+/* FIM HEADER */
 
-/* ALIGN BODY */
 body{
-    margin: 0; 
+    background-color: yellow;
+    margin:0;
 }
 
-.content-page{
-    padding: 0 100px;
-}
 
-/* FIM ALIGN BODY */
-
-
-/* TABLES */
-.section-ul-table{
-   list-style: none;
-}
-
-.img_project {
-    width: 300px;
-    margin-right: 5px;
-
-}
-
-.img_project:hover {
-    transform: scale(1.1);
-}
-
-#projects-table{
-
-}
-
-/* Guest */
-
-#guest-body{
-    background-color: aquamarine;
-}
-
-#form{
+#area-canvas{
     display: flex;
-    justify-content: space-evenly;
-    padding: 0 200px ;
-    
+    justify-content: space-around;
+    justify-items: center;
+    margin: 30px 80px;
+    padding: 50px;
+    background-color: #fff;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.5);
+    flex-wrap: wrap;
 }
-.texto-funcao{
+
+#texto-area-canvas{
     display: flex;
-    justify-content: center;
-    margin: 20px;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
 }
-
-.input-guest{
-    height: 50px;
-    margin: auto 10px;
-}
-
-/*FIM GUEST*/
-
-#projects-table td{
-    margin: 30px;
-}
-
-/*FIM TABLES*/
 
 
 /* FOOTER */
-
 footer{
     background-color: rgba(5, 5, 5, 0.8);
     padding: 10px; 
-    margin: 0 !important;  
-}
+    margin:0;  
+    position: fixed; 
+    bottom: 0; 
+    left: 0; 
+    width: 100%; 
+    padding: 20px; 
+    text-align: center; 
+  }
 
 #footer-center{
     color:#fff
@@ -109,8 +79,4 @@ footer{
     width: 70px;
     transform: scale(1.1);
 }
-
  /*FIM FOOTER*/
-
-
-
