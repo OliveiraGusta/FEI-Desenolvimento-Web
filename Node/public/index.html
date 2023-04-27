@@ -1,19 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cliente WebSocket</title>
+    <title>Teste</title>
 </head>
 <body>
-    <h1>Cliente WebSocket</h1>
+    <h1>Testando Conexao entre navegadores</h1>
     <form id="form">
       <label for="mensagem">Mensagem:</label>
       <input type="text" id="mensagem" name="mensagem">
       <button type="submit">Enviar</button>
     </form>
     <ul id="mensagens"></ul>
+
+
     <script src="/socket.io/socket.io.js"></script>
     <script>
       const socket = io();
@@ -22,22 +24,33 @@
       const input = document.getElementById('mensagem');
       const ul = document.getElementById('mensagens');
 
+
+      
+
       form.addEventListener('submit', (event) => {
         event.preventDefault();
 
         const mensagem = input.value.trim();
 
         if (mensagem) {
+           //Emite a varivael para o  socket.on('mensagem', (mensagem)  ouvir
           socket.emit('mensagem', mensagem);
+          //limpa o input 
           input.value = '';
         }
       });
-
+      //Ouve a variavel  e escreve tudo que há no socket.emit('mensagem', mensagem) 
       socket.on('mensagem', (mensagem) => {
         const li = document.createElement('li');
         li.textContent = mensagem;
         ul.appendChild(li);
       });
+
+  io.on('connection', (socket) => {
+socket.on('chat message', (msg) => {
+console.log('message: ' + msg);
+});
+});
     </script>
-</body>
+</body> 
 </html>
