@@ -1,87 +1,180 @@
-/*CORES PADRAO*/
-:root{
-	--cor-branco-principal:#fcfcfc;
-	--cor-branco-secundario:#e4ddf0;
+/*PADRAO DO PROJETO*/
+:root {
+	--cor-branco-principal: #fcfcfc;
+	--cor-branco-secundario: #e4ddf0;
 
-	--cor-lilas-principal:#7758b9;
-	--cor-lilas-secundario:#d4c7f1;
+	--cor-lilas-principal: #7758b9;
+	--cor-lilas-secundario: #d4c7f1;
 
-	--cor-roxo-principal:#422680;
+	--cor-roxo-principal: #422680;
 
-	--cor-cinza-principal:#e8e8e8;
+	--cor-cinza-principal: #e8e8e8;
+
+	padding: 0;
+	margin: 0;
+	font-family: 'Montserrat', sans-serif;
+	overflow: hidden;
 	
+}
+
+body {
+	background-color: var(--cor-branco-principal);
 	padding: 0;
 	margin: 0;
 }
+/* FIM PADRAO DO PROJETO*/
 
-body{
-background-color: var(--cor-branco-principal);
-
+/* # TEXTO */
+.text-muted{
+	color: rgba(0, 0, 0, 0.5);
 }
 
-.login-links{
-	color: var(--cor-lilas-principal); 
+.titulo-4{
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 1.2;
+	letter-spacing: 1px;
+	word-spacing: 1px;
 }
 
-.form-control{
-	min-height:50px !important;
-}
 
 
-#login-page{
-    display: flex;
-}
+/* FIM TEXTO */
+/* # ANIMACOES */
 
-#cadastro-page{
-    display: flex;
-    
-}
-
-.logo{
-width:250px;
-
-}
-@keyframes inicio-login {
-    0% {
-        transform: translateX(-100px);
+/* ## ANIMACAO ENTRADA */
+@keyframes entry-login {
+	0% {
+		transform: translateX(-100px);
 		opacity: 0;
 
-    }
-    100% {
-        transform: translateX(0);
+	}
+
+	100% {
+		transform: translateX(0);
 		opacity: 1;
-    }
+	}
+}
+
+/* ## ANIMACAO FLUTUACAO */
+@keyframes infinite-float {
+	0% {
+		transform: translateY(15px);
+	}
+
+	100% {
+		transform: translateY(0);
+	}
 }
 
 
-#left-login{
-	padding: 8%;
-	animation: inicio-login 1.5s;
-
+#left-login {
+	animation: entry-login 1.5s;
 }
 
-#left-cadastro{
-	padding: 5% 10%;
-	animation: inicio-login 1.5s;
-
-
+#left-cadastro {
+	animation: entry-login 1.5s;
 }
 
 
+/* #  FIM ANIMACOES */
 
-#right-login{
+
+/* LINKS */
+.login-links {
+	color: var(--cor-lilas-principal);
+}
+
+/*FIM LINKS*/
+
+
+
+/* BOTOES */
+.btn {
+	margin-top: 5px;
+	border-radius: 2px;
+	padding: 10px 30px;
+}
+
+.btn {
+	font-size: 16px;
+	border-radius: 20px;
+	background: var(--cor-roxo-principal);
+	border: none;
+	margin-bottom: 20px;
+}
+
+
+.btn:hover,
+.btn:focus {
+	background: var(--cor-lilas-principal) !important;
+	outline: none !important;
+}
+
+/* FIM BOTOES */
+
+
+/* # LAYOUT PAGINA  */
+#login-page {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+}
+
+#cadastro-page {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+
+}
+
+/* #  FIM LAYOUT PAGINA   */
+
+
+
+/* # PAGINA ESQUERDA */
+
+#left-login {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	
+}
+
+.left-login-items {
+	display: flex;
+	justify-content: space-around;
+	flex-direction: column;
+	align-items: start;
+
+}
+
+/* ## INPUT FORMULARIOS */
+.form-control {
+	min-height: 50px;
+	width: 450px;
+	margin-bottom: 10px;
+	padding-left: 10px;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 5px;
+}
+
+/* FIM PAGINA ESQUERDA */
+ 
+/* # AREA DIREITA */
+
+#right-login {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
 	background-image: url(../img/fundo-login.png);
 	background-size: cover;
+	height: 100vh;
 	background-color: #D8C5FF;
 	background-repeat: no-repeat;
-	height: 100vh;
 
-	display: flex;
-	justify-content: center;
-	align-items: center;
+
 }
 
-#right-cadastro{
+#right-cadastro {
 	background-image: url(../img/fundo-cadastrar.png);
 	background-size: cover;
 	background-color: #5E17EB;
@@ -90,85 +183,49 @@ width:250px;
 
 	display: flex;
 	justify-content: center;
-	align-items: center;
 	
+
 }
 
-
-
-@keyframes go-back {
-    0% {
-        transform: translateY(15px);
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
-
-.profissionais-login{
-	animation: go-back 1s infinite alternate;
-	height: 70vh;
+.profissionais-login {
+	animation: infinite-float 1s infinite alternate;
 	width: auto;
-	-webkit-filter: drop-shadow(0px 0px 20px rgba(0 0 0 / 30%)); 
-    filter: drop-shadow(0px 0px 20px rgba(0 0 0 / 30%));
-	
+	height: 70%;
+	-webkit-filter: drop-shadow(0px 0px 20px rgba(0 0 0 / 30%));
+	filter: drop-shadow(0px 0px 20px rgba(0 0 0 / 30%));
 }
-
-.btn{
-	border-radius:2px;
-	padding: 10px 30px;
-	}
-	
-.btn{
-	font-size:16px;
-	border-radius: 20px;
-	background:var(--cor-roxo-principal);
-	border:none;
-	margin-bottom:20px;
-	}
-	
-	
-.btn:hover,.btn:focus{
-	background:var(--cor-lilas-principal) !important;
-	outline: none !important;
-}
+/* # FIM AREA DIREITA */
 
 
+
+
+/* RESPONSIVIDADE */
 @media screen and (max-width: 1366px) {
-	
-#left-login{
-	padding: 2% 7%;
-	
+
+	#left-login {}
+
+	#left-cadastro {}
 }
 
-#left-cadastro{
-	padding: 2% 5%;
 
-}
-  }
-
-	  
 @media screen and (max-width: 767px) {
-	
-	body{
+
+	body {
 		overflow: visible;
 	}
-	#right-login{
-		display: none;
-	   }
-	   
-	   #right-cadastro{
-		   display: none;
-	   }
 
-	#left-login{
-		padding: 12%;
-		
+	#right-login {
+		display: none;
 	}
-	
-	#left-cadastro{
-		padding: 12%;
-	
+
+	#right-cadastro {
+		display: none;
 	}
-	
-	  }
+
+	#left-login {}
+
+	#left-cadastro {}
+
+}
+
+/* FIM REPONSIVIDADE */
