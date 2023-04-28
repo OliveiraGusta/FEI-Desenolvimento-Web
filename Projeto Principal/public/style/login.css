@@ -1,0 +1,174 @@
+/*CORES PADRAO*/
+:root{
+	--cor-branco-principal:#fcfcfc;
+	--cor-branco-secundario:#e4ddf0;
+
+	--cor-lilas-principal:#7758b9;
+	--cor-lilas-secundario:#d4c7f1;
+
+	--cor-roxo-principal:#422680;
+
+	--cor-cinza-principal:#e8e8e8;
+	
+	padding: 0;
+	margin: 0;
+}
+
+body{
+background-color: var(--cor-branco-principal);
+
+}
+
+.login-links{
+	color: var(--cor-lilas-principal); 
+}
+
+.form-control{
+	min-height:50px !important;
+}
+
+
+#login-page{
+    display: flex;
+}
+
+#cadastro-page{
+    display: flex;
+    
+}
+
+.logo{
+width:250px;
+
+}
+@keyframes inicio-login {
+    0% {
+        transform: translateX(-100px);
+		opacity: 0;
+
+    }
+    100% {
+        transform: translateX(0);
+		opacity: 1;
+    }
+}
+
+
+#left-login{
+	padding: 8%;
+	animation: inicio-login 1.5s;
+
+}
+
+#left-cadastro{
+	padding: 5% 10%;
+	animation: inicio-login 1.5s;
+
+
+}
+
+
+
+#right-login{
+	background-image: url(../img/fundo-login.png);
+	background-size: cover;
+	background-color: #D8C5FF;
+	background-repeat: no-repeat;
+	height: 100vh;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#right-cadastro{
+	background-image: url(../img/fundo-cadastrar.png);
+	background-size: cover;
+	background-color: #5E17EB;
+	background-repeat: no-repeat;
+	height: 100vh;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+}
+
+
+
+@keyframes go-back {
+    0% {
+        transform: translateY(15px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.profissionais-login{
+	animation: go-back 1s infinite alternate;
+	height: 70vh;
+	width: auto;
+	-webkit-filter: drop-shadow(0px 0px 20px rgba(0 0 0 / 30%)); 
+    filter: drop-shadow(0px 0px 20px rgba(0 0 0 / 30%));
+	
+}
+
+.btn{
+	border-radius:2px;
+	padding: 10px 30px;
+	}
+	
+.btn{
+	font-size:16px;
+	border-radius: 20px;
+	background:var(--cor-roxo-principal);
+	border:none;
+	margin-bottom:20px;
+	}
+	
+	
+.btn:hover,.btn:focus{
+	background:var(--cor-lilas-principal) !important;
+	outline: none !important;
+}
+
+
+@media screen and (max-width: 1366px) {
+	
+#left-login{
+	padding: 2% 7%;
+	
+}
+
+#left-cadastro{
+	padding: 2% 5%;
+
+}
+  }
+
+	  
+@media screen and (max-width: 767px) {
+	
+	body{
+		overflow: visible;
+	}
+	#right-login{
+		display: none;
+	   }
+	   
+	   #right-cadastro{
+		   display: none;
+	   }
+
+	#left-login{
+		padding: 12%;
+		
+	}
+	
+	#left-cadastro{
+		padding: 12%;
+	
+	}
+	
+	  }
