@@ -1,14 +1,17 @@
 /*PADRAO DO PROJETO*/
 :root {
-	--cor-branco-principal: #fcfcfc;
-	--cor-branco-secundario: #e4ddf0;
+	--branco-principal: #fcfcfc;
+	--branco-secundario: #e4ddf0;
 
-	--cor-lilas-principal: #7758b9;
-	--cor-lilas-secundario: #d4c7f1;
+	--verde-principal: #7ED957;
+	--verde-secundario: #477a31;
 
-	--cor-roxo-principal: #422680;
 
-	--cor-cinza-principal: #e8e8e8;
+
+	--cinza-principal: #e8e8e8;
+
+	--cinza-secundario: #414341;
+	--cinza-terciario: #a1a2a1;
 
 	padding: 0;
 	margin: 0;
@@ -18,14 +21,14 @@
 }
 
 body {
-	background-color: var(--cor-branco-principal);
+	background-color: var(--branco-principal);
 	padding: 0;
 	margin: 0;
 }
 /* FIM PADRAO DO PROJETO*/
 
 /* # TEXTO */
-.text-muted{
+.texto-claro{
 	color: rgba(0, 0, 0, 0.5);
 }
 
@@ -81,8 +84,14 @@ body {
 
 
 /* LINKS */
-.login-links {
-	color: var(--cor-lilas-principal);
+.links {
+	text-decoration: none;
+	color: var(--verde-principal);
+}
+
+.links:hover {
+	text-decoration: underline;
+	color: var(--verde-principal);
 }
 
 /*FIM LINKS*/
@@ -91,23 +100,23 @@ body {
 
 /* BOTOES */
 .btn {
-	margin-top: 5px;
-	border-radius: 2px;
-	padding: 10px 30px;
-}
-
-.btn {
 	font-size: 16px;
-	border-radius: 20px;
-	background: var(--cor-roxo-principal);
-	border: none;
-	margin-bottom: 20px;
-}
+	color: var(--branco-principal);
+	background: var(--verde-principal);
+	padding: 15px 40px;
 
+	margin-top: 5px;
+	margin-bottom: 20px;
+
+	border: none;
+	border-radius: 30px;
+
+	
+}
 
 .btn:hover,
 .btn:focus {
-	background: var(--cor-lilas-principal) !important;
+	background: var(--verde-secundario) !important;
 	outline: none !important;
 }
 
@@ -144,6 +153,20 @@ body {
 	justify-content: space-around;
 	flex-direction: column;
 	align-items: start;
+}
+
+#left-cadastro{
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	
+}
+
+.left-cadastro-items{
+	display: flex;
+	justify-content: space-around;
+	flex-direction: column;
+	align-items: start;
 
 }
 
@@ -168,26 +191,25 @@ body {
 	background-image: url(../img/fundo-login.png);
 	background-size: cover;
 	height: 100vh;
-	background-color: #D8C5FF;
+	background-color:var(--cinza-secundario);
 	background-repeat: no-repeat;
 
 
 }
 
 #right-cadastro {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
 	background-image: url(../img/fundo-cadastrar.png);
 	background-size: cover;
-	background-color: #5E17EB;
-	background-repeat: no-repeat;
 	height: 100vh;
-
-	display: flex;
-	justify-content: center;
-	
+	background-color:var(--cinza-secundario);
+	background-repeat: no-repeat;
 
 }
 
-.profissionais-login {
+.right-logo{
 	animation: infinite-float 1s infinite alternate;
 	width: auto;
 	height: 70%;
