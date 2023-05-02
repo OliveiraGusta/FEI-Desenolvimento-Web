@@ -1,0 +1,23 @@
+<% 
+// Caso variavel não existir, aplicar um valor a ela
+if (typeof logado == 'undefined') {
+   
+    logado = false;
+ } %>
+
+<%
+ if (logado == true) { %>
+    <script> 
+    window.alert("Usuario logado com sucesso!");
+    window.location.href = 'home.html';
+    </script>
+    <% } %>
+
+<%
+ if (logado == false) { %>
+    <script> 
+    window.alert("Desculpe, não encontramos uma conta com essas credenciais. Tente novamente ou crie um nova conta.");
+    window.location.href = 'login.html';
+    </script>
+    <% } %>
+

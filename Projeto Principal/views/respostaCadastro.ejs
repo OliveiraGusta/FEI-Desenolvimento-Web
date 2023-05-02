@@ -1,0 +1,26 @@
+<%
+// Caso variavel não existir, aplicar um valor a ela
+    if (typeof usuarioJaExistente == 'undefined') {
+    console.log("typeof usuarioJaExistente == 'undefined'")
+    usuarioJaExistente = true;
+    } %>
+ 
+<%
+if (usuarioJaExistente == false) { %>
+    <script> 
+    window.alert("Usuario cadastrado com sucesso!");
+    window.location.href = 'login.html';
+    </script>
+    <% } 
+%>
+
+<%
+if (usuarioJaExistente == true) {%>
+    <script> 
+    window.alert("Ocorreu um erro, o nome <%= nome %> já existe no sistema!");
+    window.location.href = 'cadastro.html';
+    </script>
+    <% } 
+%>
+
+
