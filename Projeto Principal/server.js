@@ -24,6 +24,16 @@ app.get('/', (req, res) => {
 
 var usuarios = []
 
+app.get('/cadastra', (req, res) => {
+    res.redirect('cadastro.html')
+})
+
+app.get('/login', (req, res) => {
+    res.redirect('login.html')
+})
+
+
+
 app.post('/cadastra', (req, res) => {
     let nome = req.body.name;
     let senha = req.body.pass;
