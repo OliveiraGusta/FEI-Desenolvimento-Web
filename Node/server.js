@@ -10,7 +10,17 @@ const PORT = 80;
 
 app.use(express.static('./public'));
 
+app.get('/', (req, res) => {
+  res.redirect('/teste_chat.html');
+});
+
 io.on('connection', (socket) => {
+
+  socket.on('connection', () => {
+    console.log('Um usuário desconectou');
+    io.emit('connection', connection);
+  });
+
   console.log('Um usuário conectou');
   
   socket.on('mensagem', (mensagem) => {
@@ -32,8 +42,8 @@ io.on('connection', (socket) => {
   });
 
   socket.on('digitando', (digitando) => {
-    console.log('Usuario esta digitando...' );
     io.emit('digitando', digitando);
+
   });
 
 });
