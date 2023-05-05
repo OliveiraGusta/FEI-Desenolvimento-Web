@@ -51,8 +51,8 @@
       }
     });
 
-    socket.on('connection', function (socket) {
-      console.log('Um usuario se conectou: ' + socket)
+    socket.on('connection', function (connection) {
+      console.log('Um usuario se conectou: ' + connection)
     });
 
     socket.on('chat message', function (msg) {

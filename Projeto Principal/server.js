@@ -21,18 +21,11 @@ app.get('/', (req, res) => {
     res.redirect('project.html')
 })
 
-
 var usuarios = []
 
 app.get('/cadastra', (req, res) => {
     res.redirect('cadastro.html')
 })
-
-app.get('/login', (req, res) => {
-    res.redirect('login.html')
-})
-
-
 
 app.post('/cadastra', (req, res) => {
     let nome = req.body.name;
@@ -56,6 +49,11 @@ app.post('/cadastra', (req, res) => {
     }
    
 });
+
+
+app.get('/login', (req, res) => {
+    res.redirect('login.html')
+})
 
 app.post('/login', (req, res) => {
     let nome = req.body.name;

@@ -17,12 +17,10 @@ app.get('/', (req, res) => {
 io.on('connection', (socket) => {
 
   socket.on('connection', () => {
-    console.log('Um usuário desconectou');
+    console.log('Um usuário conectou, entrou na funcao');
     io.emit('connection', connection);
   });
 
-  console.log('Um usuário conectou');
-  
   socket.on('mensagem', (mensagem) => {
     console.log('Mensagem recebida:', mensagem);
     io.emit('mensagem', mensagem);
