@@ -3,7 +3,10 @@
 // Variaveis
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
-var personIMG = document.getElementById('player')
+
+//var personIMG = document.getElementById('player')
+var personIMG = new Image()
+personIMG.src="./img/cores.png";
 var obstacleIMG = document.getElementById('obstacle')
 
 var timer, person, obstacle
