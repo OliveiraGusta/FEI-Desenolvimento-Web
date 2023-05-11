@@ -10,13 +10,39 @@ obstacleIMG.src = "./img/shuriken.png";
 var personIMG = new Image();
 personIMG.src = "./img/person-1.png";
 
+var cenarioIMG = new Image();
+cenarioIMG.src = "./img/cenario1.webp";
+
 var timer, person, obstacle
 var W = canvas.width, H = canvas.height
 
-//Score
 
+class Cenario{
+    constructor(){
+        this.x = 0
+        this.y = 0
+        this.numeroSprite = 0
+        this.posInitX = 2
+        this.Limagem = 0
+        this.larguraSprite = 0
+        this.numeroSprites = 1
+        
+    }
+    draw(){
+        this.larguraSprite = cenarioIMG.width / this.numeroSprites
+        this.alturaSprite = cenarioIMG.height /  this.numeroSprites
+        this.posInitX = this.larguraSprite * this.numeroSprite
+        ctx.drawImage(cenarioIMG, this.posInitX, 0, this.larguraSprite, this.alturaSprite, this.x, this.y, W ,H)
+
+    }
+    update(){
+        this.draw()
+    }
+}
+//Score
 class Score {
     constructor() {
+        
         this.x = 20
         this.y = 170
         this.points = 0
@@ -50,9 +76,9 @@ class Person {
         this.numeroSprites = 6
 
         this.x = 20
-        this.y = 170
+        this.y = 290
         this.jumping = false
-        this.jumpSpeed = 2
+        this.jumpSpeed = 3
         this.heighestJump = false
     }
     draw() {
@@ -74,11 +100,9 @@ class Person {
 
     jump() {
         //Jump up
-        if (this.jumping && !this.heighestJump && this.y > 60) {
+        if (this.jumping && !this.heighestJump && this.y > 100) {
             this.y -= this.jumpSpeed
             personIMG.src = "./img/person-jumping.png";
-
-            requestAnimationFrame(this.jump)
             this.numeroSprites = 4
             this.numeroSprite = 0
             this.posInitX = this.larguraSprite * this.numeroSprite
@@ -86,12 +110,12 @@ class Person {
 
         }
         // Jump down
-        else if (this.y < 170) {
+        else if (this.y < 290) {
             this.heighestJump = true
             this.y += this.jumpSpeed
             personIMG.src = "./img/person-jumping.png";
 
-            requestAnimationFrame(this.jump)
+           
             this.numeroSprites = 4
 
             this.numeroSprite = 2
@@ -119,11 +143,10 @@ class Person {
 class Obstacle {
     constructor() {
         this.x = W
-        this.y = 200
+        this.y = 270
         this.speed = 2
 
        
-
         this.numeroSprite = 0
         this.posInitX = 0
         this.Limagem = 0
@@ -136,18 +159,17 @@ class Obstacle {
         this.larguraSprite = obstacleIMG.width / this.numeroSprites
         this.alturaSprite = obstacleIMG.height
         this.posInitX = this.larguraSprite * this.numeroSprite
-
-        ctx.drawImage(obstacleIMG, this.posInitX, 0, this.larguraSprite, this.alturaSprite, this.x, this.y, this.larguraSprite, this.alturaSprite)
+    
     }
     animation() {
-
+        this.draw()
         this.numeroSprite++
         if (this.numeroSprite >= 4) {
             this.numeroSprite = 0
         }
         this.posInitX = this.larguraSprite * this.numeroSprite
-        ctx.drawImage(obstacleIMG, this.posInitX, 0, this.larguraSprite, this.alturaSprite, this.x, this.y, this.larguraSprite, this.alturaSprite)
 
+        ctx.drawImage(obstacleIMG, this.posInitX, 0, this.larguraSprite, this.alturaSprite, this.x, this.y, this.larguraSprite, this.alturaSprite)
     }
 
     moveLoop() {
@@ -161,7 +183,6 @@ class Obstacle {
         }
     }
     update() {
-        requestAnimationFrame(this.animation)
         this.animation()
         this.draw()
         this.moveLoop()
@@ -182,8 +203,9 @@ function collission() {
 
 //Loop 
 function loop() {
+    
     ctx.clearRect(0, 0, W, H);
-
+    cenario.update();
     obstacle.update()
     person.update()
     score.update()
@@ -196,11 +218,10 @@ function loop() {
 //Start Game
 function startGame() {
     timer = setInterval(loop)
+    cenario = new Cenario()
     person = new Person()
     obstacle = new Obstacle()
     score = new Score()
-
-
 }
 
 //restart Game
@@ -254,7 +275,6 @@ document.body.addEventListener('keydown', function (event) {
         case "r":
             restartGame()
             break;
-
     }
 });
 
